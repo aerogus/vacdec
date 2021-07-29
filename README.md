@@ -4,7 +4,7 @@ Service web de décodage du certificat Covid européeen
 
 Basé sur le script python de [Hanno Böck](https://hboeck.de/)
 
-Le script prend une image avec un Code QR d'un certificat vaccinbale et montre les données du certificat.
+Le script prend une image avec un Code QR d'un certificat vaccinal et montre les données de ce certificat.
 **Il n'y a pas de validation de la signature**
 
 Le code est très court et permet de comprendre comment ces certificats sont encodés :
