@@ -1,39 +1,27 @@
 # vacdec
-Python script to decode the EU Covid-19 vaccine certificate, as [specified by the EU](https://ec.europa.eu/health/ehealth/covid-19_en).
 
-This script takes an image with a QR code of a vaccine certificate as
-the parameter and will show the certificate's content.
-**It will not validate the signature.**
+Service web de décodage du certificat Covid européeen
 
-The code is very short and should provide an easy way to understand
-how these certificates are encoded:
+Basé sur le script python de [Hanno Böck](https://hboeck.de/)
 
-* The QR code encodes a string starting with "HC1:".
-* The string following "HC1:" is base45 encoded.
-* Decoding the base45 leads to zlib-compressed data.
-* Decompression leads to a CBOR Web Token structure.
+Le script prend une image avec un Code QR d'un certificat vaccinbale et montre les données du certificat.
+**Il n'y a pas de validation de la signature**
 
-## setup
+Le code est très court et permet de comprendre comment ces certificats sont encodés :
 
-You will need the python pillow, pyzbar, cbor2 and base45 packages. Additionally, you need zbar. For Mac OS X, it can be installed via `brew install zbar`, on Debian systems via `apt install libzbar0`. [Source](https://pypi.org/project/pyzbar/)
+* The QR code encode une chaîne qui débute par "HC1:"
+* La chaîne qui suit "HC1:" est encodée base45
+* Le décodage base45 donne une donnée binaire compressée avec zlib
+* la décompression zblib donne une structure de  Web Token CBOR
 
-You can install them via your distribution or via pip:
+## Usage
 
-```
-pip install base45 cbor2 pillow pyzbar
-```
+Prérequis Docker, puis instanciation du conteneur :
 
-## usage
-
-Run:
-
-```
-./vacdec [image]
+```bash
+docker run -p 80:80 --rm -it $(docker build -q .)
 ```
 
-[image] can be an image in any format pillow supports, including of
-course PNG and JPG.
+Allez sur http://127.0.0.1 et uploader l'image
 
-## author
-
-Written by [Hanno Böck](https://hboeck.de/).
+![capture](screenshot.png)
