@@ -16,12 +16,26 @@ Le code est très court et permet de comprendre comment ces certificats sont enc
 
 ## Usage
 
-Prérequis Docker, puis instanciation du conteneur :
+Via Docker, pour instancier le conteneur :
 
 ```bash
 docker run -p 80:80 --rm -it $(docker build -q .)
 ```
 
+ou
+
+Via l'interpréteur Python3
+
+```
+pip3 install -r requirements.txt
+python3 ./app/server.py
+```
+
 Allez sur http://127.0.0.1 et uploader l'image
 
 ![capture](screenshot.png)
+
+## Ressources
+
+- [Décoder le certificat Covid européen](https://aerogus.net/posts/decoder-certificat-covid-europeen/)
+
