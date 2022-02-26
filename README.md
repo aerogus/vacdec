@@ -1,10 +1,10 @@
 # vacdec
 
-Service web de décodage du certificat Covid européeen
+Service web de décodage du certificat Covid européen
 
 Basé sur le script python de [Hanno Böck](https://hboeck.de/)
 
-Le script prend une image avec un Code QR d'un certificat vaccinal et montre les données de ce certificat.
+Le script prend une image avec un code QR d'un certificat vaccinal et montre les données de ce certificat.
 **Il n'y a pas de validation de la signature**
 
 Le code est très court et permet de comprendre comment ces certificats sont encodés :
@@ -19,7 +19,7 @@ Le code est très court et permet de comprendre comment ces certificats sont enc
 Via Docker, pour instancier le conteneur :
 
 ```bash
-docker run -p 80:80 --rm -it $(docker build -q .)
+docker run -p 80:80 --rm -it $(docker build --quiet .)
 ```
 
 ou
